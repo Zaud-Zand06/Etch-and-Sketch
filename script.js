@@ -12,7 +12,10 @@ function makeRows(rows, cols) {
   
   makeRows(16, 16);
 
-  document.getElementById('grid-item').onmouseover = function() {
-    this.className = 'trace'
-  }
+  document.querySelectorAll('.grid-item').forEach(cell => {
+      cell.addEventListener('mouseover',() => {
+        cell.className = 'trace';
+      });
+    });
+
   
