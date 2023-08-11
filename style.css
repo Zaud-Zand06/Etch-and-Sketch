@@ -5,17 +5,19 @@
   
   .drawboard {
     display: grid;
-    grid-gap: 1em;
     grid-template-rows: repeat(var(--grid-rows), 1fr);
     grid-template-columns: repeat(var(--grid-cols), 1fr);
   }
   
   .grid-item {
-    padding: 1em;
     border: 1px solid #ddd;
     text-align: center;
+    min-width: 1rem;
+    min-height: 1rem;
+    width: auto;
+    height: auto;
   }
 
   .trace {
-    color: red;
+    background-color: blue;
   }
