@@ -3,7 +3,12 @@ const resetButton = document.querySelector('#changeResolution');
 
 resetButton.addEventListener('click',() => {
   drawBoard.innerHTML = ''
-  let resolution = prompt('What resolution?', '16');
+  let resolution = prompt('What resolution?', '16'); //prompt returns all values as strings 
+  parseInt(resolution);
+  if(resolution > 99) {
+    alert('Less than 100 px!')
+    return;
+  } 
   makeRows(resolution, resolution);
   addTrace();
 })
