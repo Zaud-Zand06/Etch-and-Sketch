@@ -19,5 +19,10 @@
   }
 
   .trace {
-    background-color: blue;
+    border: 1px solid #2c0e78;
+    text-align: center;
+    min-width: 1rem;
+    min-height: 1rem;
+    width: auto;
+    height: auto;
   }

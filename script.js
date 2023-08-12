@@ -1,10 +1,11 @@
 const drawBoard = document.querySelector('.drawboard');
 const resetButton = document.querySelector('#changeResolution');
 
-resetButton.addEventListener('click', function() {
+resetButton.addEventListener('click',() => {
   drawBoard.innerHTML = ''
   let resolution = prompt('What resolution?', '16');
   makeRows(resolution, resolution);
+  addTrace();
 })
 
 function makeRows(rows, cols) {
@@ -15,12 +16,14 @@ function makeRows(rows, cols) {
       drawBoard.appendChild(cell).className = "grid-item";
     };
   };
-  
 
+function addTrace() {
   document.querySelectorAll('.grid-item').forEach(cell => {
-      cell.addEventListener('mouseover',() => {
-        cell.className = 'trace';
-      });
+    cell.addEventListener('mouseover',() => {
+      cell.className = 'trace';
     });
+  });  
+};
+
 
   
