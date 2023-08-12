@@ -16,6 +16,7 @@
     min-height: 1rem;
     width: auto;
     height: auto;
+    background-color: #ddd;
   }
 
   .trace {
@@ -25,4 +26,5 @@
     min-height: 1rem;
     width: auto;
     height: auto;
+    background: #2c0e78;
   }
