@@ -5,8 +5,8 @@
   
   .drawboard {
     display: grid;
-    grid-template-rows: repeat(var(--grid-rows), 1fr);
-    grid-template-columns: repeat(var(--grid-cols), 1fr);
+    grid-template-rows: repeat(var(--grid-rows), auto);
+    grid-template-columns: repeat(var(--grid-cols), auto);
   }
   
   .grid-item {
@@ -32,8 +32,13 @@
   .dropdownResolution {
     display: flex;
     flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
   }
 
   .dropdownList {
     display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    align-items: center;
   }

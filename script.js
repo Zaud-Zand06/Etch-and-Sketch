@@ -30,6 +30,7 @@ onehundredPx.addEventListener('click',() => {
   addTrace();
 });
 
+
 function makeRows(rows, cols) {
     drawBoard.style.setProperty('--grid-rows', rows);
     drawBoard.style.setProperty('--grid-cols', cols);
@@ -44,8 +45,15 @@ function addTrace() {
     cell.addEventListener('mouseover',() => {
       cell.classList.add('trace');
     });
-  });  
+  });
+  clickScreen();   
 };
+
+function clickScreen() {
+  const screen = document.querySelector('.clickScreen');
+  const clicked = document.createElement('div');
+  document.body.insertBefore(clicked, screen);
+}
 
 resetBtn.addEventListener('click',() => {
   document.querySelectorAll('.trace').forEach(element => {
@@ -53,5 +61,6 @@ resetBtn.addEventListener('click',() => {
   });
   return;
 })
+
 
   
