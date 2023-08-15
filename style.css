@@ -28,3 +28,12 @@
     height: auto;
     background: #2c0e78;
   }
+
+  .dropdownResolution {
+    display: flex;
+    flex-flow: row wrap;
+  }
+
+  .dropdownList {
+    display: flex;
+  }
