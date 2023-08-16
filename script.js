@@ -6,28 +6,39 @@ const thirtytwoPx = document.getElementById('32x32');
 const sixtyfourPx = document.getElementById('64x64');
 const onehundredPx = document.getElementById('128x128');
 
+document.querySelectorAll("*").forEach((elem) => {
+  elem.setAttribute('draggable', false)
+  elem.addEventListener('dragstart', (event) => {
+      event.preventDefault()
+  })
+})
+
+let mouseDown = 0;
+drawBoard.onmousedown = () => { 
+  mouseDown++;
+}
+drawBoard.onmouseup = () => {
+  mouseDown--;
+}
+
 sixteenPx.addEventListener('click',() => {
   drawBoard.innerHTML = '';
   makeRows(16, 16);
-  addTrace();
 });
 
 thirtytwoPx.addEventListener('click',() => {
   drawBoard.innerHTML = '';
   makeRows(32, 32);
-  addTrace();
 });
 
 sixtyfourPx.addEventListener('click',() => {
   drawBoard.innerHTML = '';
   makeRows(64, 64);
-  addTrace();
 });
 
 onehundredPx.addEventListener('click',() => {
   drawBoard.innerHTML = '';
   makeRows(128, 128);
-  addTrace();
 });
 
 
@@ -39,14 +50,19 @@ function makeRows(rows, cols) {
       drawBoard.appendChild(cell).className = "grid-item";
     };
   };
+  
+  drawBoard.addEventListener('mousedown',() => {addTrace()});
+  drawBoard.addEventListener('mouseup',() => {removeTrace()});
 
 function addTrace() {
   document.querySelectorAll('.grid-item').forEach(cell => {
     cell.addEventListener('mouseover',() => {
-      cell.classList.add('trace');
-    });
-  });
-  clickScreen();   
+      if(mouseDown) {
+        cell.classList.add('trace');
+      }
+    })})};
+
+function removeTrace() {
 };
 
 function clickScreen() {
@@ -59,6 +75,7 @@ resetBtn.addEventListener('click',() => {
   document.querySelectorAll('.trace').forEach(element => {
     element.classList.remove('trace');
   });
+  mouseDown = 0;
   return;
 })
 
