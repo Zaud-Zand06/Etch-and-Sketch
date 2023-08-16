@@ -24,21 +24,25 @@ drawBoard.onmouseup = () => {
 sixteenPx.addEventListener('click',() => {
   drawBoard.innerHTML = '';
   makeRows(16, 16);
+  addTrace();
 });
 
 thirtytwoPx.addEventListener('click',() => {
   drawBoard.innerHTML = '';
   makeRows(32, 32);
+  addTrace();
 });
 
 sixtyfourPx.addEventListener('click',() => {
   drawBoard.innerHTML = '';
   makeRows(64, 64);
+  addTrace();
 });
 
 onehundredPx.addEventListener('click',() => {
   drawBoard.innerHTML = '';
   makeRows(128, 128);
+  addTrace();
 });
 
 
@@ -50,9 +54,6 @@ function makeRows(rows, cols) {
       drawBoard.appendChild(cell).className = "grid-item";
     };
   };
-  
-  drawBoard.addEventListener('mousedown',() => {addTrace()});
-  drawBoard.addEventListener('mouseup',() => {removeTrace()});
 
 function addTrace() {
   document.querySelectorAll('.grid-item').forEach(cell => {
@@ -61,15 +62,6 @@ function addTrace() {
         cell.classList.add('trace');
       }
     })})};
-
-function removeTrace() {
-};
-
-function clickScreen() {
-  const screen = document.querySelector('.clickScreen');
-  const clicked = document.createElement('div');
-  document.body.insertBefore(clicked, screen);
-}
 
 resetBtn.addEventListener('click',() => {
   document.querySelectorAll('.trace').forEach(element => {
